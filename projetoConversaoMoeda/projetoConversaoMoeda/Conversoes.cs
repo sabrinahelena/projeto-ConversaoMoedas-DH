@@ -4,13 +4,13 @@ namespace projetoConversaoMoeda
 {
     internal class Conversoes
     {
-        Dictionary<Moedas, double> ValoresDasMoedasEmReais = new Dictionary<Moedas, double>()
+        Dictionary<Moedas, decimal> ValoresDasMoedasEmReais = new Dictionary<Moedas, decimal>()
         {
  
-            {Moedas.dolar, 4.5000 }, //em real
-            {Moedas.euro, 6.2000 },
-            {Moedas.iene, 0.0520 },
-            {Moedas.libra_esterlina, 6.9500}
+            {Moedas.dolar, 4.5000M }, //em real
+            {Moedas.euro, 6.2000M },
+            {Moedas.iene, 0.0520M },
+            {Moedas.libra_esterlina, 6.9500M}
         };
 
  
@@ -20,35 +20,37 @@ namespace projetoConversaoMoeda
         public double ValorDolar { get; set; }
 
 
+
         //Conversões de real para: 
-        public double RealParaDolar(double ValorReal)
+
+        public decimal RealParaDolar(decimal ValorReal)
         {
-            double resultado = ValorReal / ValoresDasMoedasEmReais[Moedas.dolar];
+            decimal resultado = ValorReal / ValoresDasMoedasEmReais[Moedas.dolar];
             Console.WriteLine($"O valor de {ValorReal.ToString("C4", CultureInfo.CurrentCulture)} em {Moedas.dolar} é  {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("us-US"))}.");
             return resultado;
         }
 
-        public double RealParaEuro(double ValorReal)
+        public decimal RealParaEuro(decimal ValorReal)
         {
 
 
-            double resultado = ValorReal / ValoresDasMoedasEmReais[Moedas.euro];
+            decimal resultado = ValorReal / ValoresDasMoedasEmReais[Moedas.euro];
             Console.WriteLine($"O valor de {ValorReal.ToString("C4", CultureInfo.CurrentCulture)} em {Moedas.euro} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("fr-FR"))}.");
             return resultado;
         }
 
-        public double RealParaIene(double ValorReal)
+        public decimal RealParaIene(decimal ValorReal)
         {
 
-            double resultado = ValorReal / ValoresDasMoedasEmReais[Moedas.iene];
+            decimal resultado = ValorReal / ValoresDasMoedasEmReais[Moedas.iene];
             Console.WriteLine($"O valor de {ValorReal.ToString("C4", CultureInfo.CurrentCulture)} em {Moedas.iene} é  {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JA"))}.");
             return resultado;
         }
 
-        public double RealParaLibra(double ValorReal)
+        public decimal RealParaLibra(decimal ValorReal)
         {
 
-            double resultado = ValorReal / ValoresDasMoedasEmReais[Moedas.libra_esterlina];
+            decimal resultado = ValorReal / ValoresDasMoedasEmReais[Moedas.libra_esterlina];
             Console.WriteLine($"O valor de {ValorReal.ToString("C4", CultureInfo.CurrentCulture)} em {Moedas.libra_esterlina} é ACHAR CODIGO LIBRA {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("en-GB"))}.");
             return resultado;
 
@@ -56,60 +58,60 @@ namespace projetoConversaoMoeda
 
         //Conversões de dolar para:
 
-        public double DolarParaReal(double ValorDolar)
+        public decimal DolarParaReal(decimal ValorDolar)
         {
-            double resultado = ValorDolar * ValoresDasMoedasEmReais[Moedas.dolar];
+            decimal resultado = ValorDolar * ValoresDasMoedasEmReais[Moedas.dolar];
             Console.WriteLine($"O valor de {ValorDolar.ToString("C4", CultureInfo.CreateSpecificCulture("us-US"))} em {Moedas.real} é {resultado.ToString("C4", CultureInfo.CurrentCulture)}.");
             return resultado;
         }
 
-        public double DolarParaEuro(double ValorDolar)
+        public decimal DolarParaEuro(decimal ValorDolar)
         {
-            double resultado = ValorDolar * 0.7258;
+            decimal resultado = ValorDolar * 0.7258M;
             Console.WriteLine($"O valor de {ValorDolar.ToString("C4", CultureInfo.CreateSpecificCulture("us-US"))} em {Moedas.euro} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("eu-EU"))}.");
             return resultado;
         }
 
-        public double DolarParaIene(double ValorDolar)
+        public decimal DolarParaIene(decimal ValorDolar)
         {
-            double resultado = ValorDolar * 86.5385;
+            decimal resultado = ValorDolar * 86.5385M;
             Console.WriteLine($"O valor de {ValorDolar.ToString("C4", CultureInfo.CreateSpecificCulture("us-US"))} em {Moedas.iene} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JA"))}.");
             return resultado;
 
         }
         
-        public double DolarParaLibra(double ValorDolar)
+        public decimal DolarParaLibra(decimal ValorDolar)
         {
-            double resultado = ValorDolar * 0.6475;
+            decimal resultado = ValorDolar * 0.6475M;
             Console.WriteLine($"O valor de {ValorDolar.ToString("C4", CultureInfo.CreateSpecificCulture("us-US"))} em {Moedas.libra_esterlina} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("en-GB"))}.");
             return resultado;
         }
 
         //De euro para:
 
-        public double EuroParaReal(double ValorEuro)
+        public decimal EuroParaReal(decimal ValorEuro)
         {
-            double resultado = ValorEuro * ValoresDasMoedasEmReais[Moedas.euro];
+            decimal resultado = ValorEuro * ValoresDasMoedasEmReais[Moedas.euro];
             Console.WriteLine($"O valor de {ValorEuro.ToString("C4", CultureInfo.CreateSpecificCulture("fr-FR"))} em {Moedas.real} é {resultado.ToString("C4", CultureInfo.CurrentCulture)}.");
             return resultado;
         }
-        public double EuroParaDolar(double ValorEuro)
+        public decimal EuroParaDolar(decimal ValorEuro)
         {
-            double resultado = ValorEuro * 1.3778;
+            decimal resultado = ValorEuro * 1.3778M;
             Console.WriteLine($"O valor de {ValorEuro.ToString("C4", CultureInfo.CreateSpecificCulture("fr-FR"))} em {Moedas.dolar} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("us-US"))}.");
             return resultado;
         }
 
-        public double EuroParaIene(double ValorEuro)
+        public decimal EuroParaIene(decimal ValorEuro)
         {
-            double resultado = ValorEuro * 119.2308;
+            decimal resultado = ValorEuro * 119.2308M;
             Console.WriteLine($"O valor de {ValorEuro.ToString("C4", CultureInfo.CreateSpecificCulture("fr-FR"))} em {Moedas.iene} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JA"))}.");
             return resultado;
         }
 
-        public double EuroParaLibra(double ValorEuro)
+        public decimal EuroParaLibra(decimal ValorEuro)
         {
-            double resultado = ValorEuro * 0.8921;
+            decimal resultado = ValorEuro * 0.8921M;
             Console.WriteLine($"O valor de {ValorEuro.ToString("C4", CultureInfo.CreateSpecificCulture("fr-FR"))} em {Moedas.libra_esterlina} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("en-GB"))}.");
             return resultado;
         }
@@ -117,58 +119,58 @@ namespace projetoConversaoMoeda
 
         //De iene para:
 
-        public double IeneParaReal(double ValorIene)
+        public decimal IeneParaReal(decimal ValorIene)
         {
-            double resultado = ValorIene * ValoresDasMoedasEmReais[Moedas.iene];
+            decimal resultado = ValorIene * ValoresDasMoedasEmReais[Moedas.iene];
             Console.WriteLine($"O valor de {ValorIene.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JA"))} em {Moedas.real} é {resultado.ToString("C4", CultureInfo.CurrentCulture)}.");
             return resultado;
         }
 
-        public double IeneParaDolar(double ValorIene)
+        public decimal IeneParaDolar(decimal ValorIene)
         {
-            double resultado = ValorIene * 0.0116;
+            decimal resultado = ValorIene * 0.0116M;
             Console.WriteLine($"O valor de {ValorIene.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JA"))} em {Moedas.dolar} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("us-US"))}.");
             return resultado;
         }
 
-        public double IeneParaEuro(double ValorIene)
+        public decimal IeneParaEuro(decimal ValorIene)
         {
-            double resultado = ValorIene * 0.0084;
+            decimal resultado = ValorIene * 0.0084M;
             Console.WriteLine($"O valor de {ValorIene.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JA"))} em {Moedas.dolar} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("fr-FR"))}.");
             return resultado;
         }
 
-        public double IeneParaLibra(double ValorIene)
+        public decimal IeneParaLibra(decimal ValorIene)
         {
-            double resultado = ValorIene * 0.0075;
+            decimal resultado = ValorIene * 0.0075M;
             Console.WriteLine($"O valor de {ValorIene.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JA"))} em {Moedas.libra_esterlina} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("en-GB"))}.");
             return resultado;
         }
 
         //De libra esterlina para:
 
-        public double LibraParaReal(double ValorLibra)
+        public decimal LibraParaReal(decimal ValorLibra)
         {
-            double resultado = ValorLibra * ValoresDasMoedasEmReais[Moedas.libra_esterlina];
+            decimal resultado = ValorLibra * ValoresDasMoedasEmReais[Moedas.libra_esterlina];
             Console.WriteLine($"O valor de {ValorLibra.ToString("C4", CultureInfo.CreateSpecificCulture("en-GB"))} em {Moedas.real} é {resultado.ToString("C4", CultureInfo.CurrentCulture)}.");
             return resultado;
         }
-        public double LibraParaDolar(double ValorLibra)
+        public decimal LibraParaDolar(decimal ValorLibra)
         {
-            double resultado = ValorLibra * 1.5444;
+            decimal resultado = ValorLibra * 1.5444M;
             Console.WriteLine($"O valor de {ValorLibra.ToString("C4", CultureInfo.CreateSpecificCulture("en-GB"))} em {Moedas.dolar} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("us-US"))}.");
             return resultado;
         }
 
-        public double LibraParaEuro(double ValorLibra)
+        public decimal LibraParaEuro(decimal ValorLibra)
         {
-            double resultado = ValorLibra * 1.1210;
+            decimal resultado = ValorLibra * 1.1210M;
             Console.WriteLine($"O valor de {ValorLibra.ToString("C4", CultureInfo.CreateSpecificCulture("en-GB"))} em {Moedas.euro} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("fr-FR"))}.");
             return resultado;
         }
-        public double LibraParaIene(double ValorLibra)
+        public decimal LibraParaIene(decimal ValorLibra)
         {
-            double resultado = ValorLibra * 133.6538;
+            decimal resultado = ValorLibra * 133.6538M;
             Console.WriteLine($"O valor de {ValorLibra.ToString("C4", CultureInfo.CreateSpecificCulture("en-GB"))} em {Moedas.iene} é {resultado.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JA"))}.");
             return resultado;
         }

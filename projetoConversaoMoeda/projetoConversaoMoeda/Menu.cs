@@ -24,7 +24,7 @@ namespace projetoConversaoMoeda
             int opcaoPara = int.Parse(Console.ReadLine());
 
             Console.Write(Environment.NewLine + "Digite o valor para ser convertido: ");
-            double valorDigitado = double.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
+            decimal valorDigitado = decimal.Parse(Console.ReadLine());
 
             if (opcaoDe == 1)
             {
